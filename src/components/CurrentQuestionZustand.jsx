@@ -17,7 +17,7 @@ export const CurrentQuestionZustand = () => {
       <h1>Question: {question.questionText}</h1>
       <ul>
         {question.options.map((option, index) => (
-          <li key={index}>{option}</li>
+          <li key={index}><input type="radio" name="options"/>{option}</li>
         ))}
       </ul>
     </div>
