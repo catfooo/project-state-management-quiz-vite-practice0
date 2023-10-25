@@ -21,6 +21,8 @@ export const CurrentQuestionZustand = () => {
     // move to the next question
     // check if this is the last question
     if (currentQuestionIndex + 1 === totalQuestions) {
+      // Call the goToNextQuestion function to set quizOver to true
+      useQuizStore.getState().goToNextQuestion();
       // navigate to the summary page when the last question is reached
       // window.location.href = "/summary"
       navigate('/summary')
