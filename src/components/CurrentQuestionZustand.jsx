@@ -6,25 +6,26 @@ export const CurrentQuestionZustand = () => {
     (state) => state.currentQuestionIndex
   );
   const question = questions[currentQuestionIndex];
+  const goToNextQuestion = useQuizStore((state) => state.goToNextQuestion)
 
   if (!question) {
     return <h1>Oh no! I could not find the current question!</h1>;
   }
 
-  const nextQuestion = () => {
-    useQuizStore.getState().goToNextQuestion()
-  }
-
   return (
     <div className="managed-component">
-      <h2>Using Zustand</h2>
       <h1>Question: {question.questionText}</h1>
-      <ul>
+      <div>
         {question.options.map((option, index) => (
-          <li key={index}><input type="radio" name="options"/>{option}</li>
+          <div key={index}>
+            <label>
+              <input type="radio" name="options"/>
+              {option}
+            </label>
+          </div>
         ))}
-      </ul>
-      <button onClick={nextQuestion}>okej</button>
+      </div>
+      <button onClick={goToNextQuestion}>okej</button>
     </div>
   );
 };
