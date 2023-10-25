@@ -11,6 +11,10 @@ export const CurrentQuestionZustand = () => {
     return <h1>Oh no! I could not find the current question!</h1>;
   }
 
+  const nextQuestion = () => {
+    useQuizStore.getState().goToNextQuestion()
+  }
+
   return (
     <div className="managed-component">
       <h2>Using Zustand</h2>
@@ -20,6 +24,7 @@ export const CurrentQuestionZustand = () => {
           <li key={index}><input type="radio" name="options"/>{option}</li>
         ))}
       </ul>
+      <button onClick={nextQuestion}>okej</button>
     </div>
   );
 };
